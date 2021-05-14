@@ -1,0 +1,421 @@
+:root {
+    --link: #777777;
+    --link-hover: #333333;
+    --foreground: #343a40;
+    --background: #eeeeee;
+    --container-background: #ffffff;
+    --overlay-primary: rgba(255,255,255,0.7);
+    --overlay-secondary: rgba(255,255,255,0.3);
+    --gradient-primary: #eaeaea;
+    --gradient-secondary: #f8f8f8;
+    --footer-border-color: #e2e2e2;
+    --selection-color: #191919;
+}
+
+/* -------------------------------------------------------------------------- */
+/* -----| DARK THEME |------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+[data-theme="dark"] {
+    --link: #707e93;
+    --link-hover: #ffffff;
+    --foreground: #777777;
+    --background: #16191d;
+    --container-background: #2d3139;
+    --overlay-primary: rgba(0,0,0,0.7);
+    --overlay-secondary: rgba(0,0,0,0.3);
+    --gradient-primary: #2c3038;
+    --gradient-secondary: #2d3139;
+    --footer-border-color: #363636;
+}
+
+[data-theme="dark"] #page-content .nav>li>a:focus,
+[data-theme="dark"] #page-content .nav>li>a:hover {background-color: #191a1d;}
+
+[data-theme="dark"] .close {color:#fff}
+[data-theme="dark"] .modal-content {
+    background-color: #2d3139;
+    color: #9b9da0;
+}
+
+* {
+    transition: color 150ms ease-out, background-color 150ms ease-out;
+    outline:none
+}
+
+::selection {
+    background-color: var(--selection-bg-color);
+    color: var(--selection-color);
+}
+
+a {
+	text-decoration: none;
+	color: var(--link);
+}
+a:focus,a:hover {color: var(--link-hover);}
+a:focus i.fa,a:hover i.fa {color: var(--link-hover);}
+a i.fa {color: var(--link);}
+
+/* ---------------------------------------------------------------------------------------------- */
+/* -----| GENERAL |------------------------------------------------------------------------------ */
+/* ---------------------------------------------------------------------------------------------- */
+
+body {
+    /*padding: 70px 0 0;*/
+    overflow: hidden;
+    min-width: 720px;
+    color: var(--foreground);
+    background-color: var(--background);
+}
+
+body.breadcrumb-fixed {
+    padding-top: 56px;
+}
+
+.container {
+    max-width: 960px;
+}
+
+#page-content.container {
+    padding: 4px;
+    font: 14px 'Open Sans', sans-serif;
+    line-height: 20px;
+    /*color: #d6dae0;*/
+    background: var(--container-background);
+    -webkit-box-shadow: 0 0 6px rgba(0,0,0,0.27);
+    -moz-box-shadow: 0 0 6px rgba(0,0,0,0.27);
+    box-shadow: 0 0 6px rgba(0,0,0,0.27);
+    border-radius: 2px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* -----| HEADER |----------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+#page-navbar .navbar-text {
+    display: block;
+    float: left;
+    font-family: 'Cutive Mono', monospace, serif;
+    max-width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.scrollbar {
+    overflow: auto;
+    padding: 10px;
+    height: calc(100vh - 138px);
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+ 
+.scrollbar::-webkit-scrollbar-track {
+    background-color: rgba(0,0,0,0.2);
+    box-shadow: inset 0px 0px 0px 2px #ffffff;
+    border-radius: 5px;
+}
+ 
+.scrollbar::-webkit-scrollbar-thumb {
+    background-color: #c1c1c1;
+    border-radius: 5px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(117, 117, 117);
+}
+
+.scrollbar ::-webkit-scrollbar-corner {}
+
+*::-webkit-scrollbar-thumb:hover,
+[data-theme="dark"] *::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(117, 117, 117);
+}
+
+*::-webkit-scrollbar-corner {}
+
+[data-theme="dark"] *::-webkit-scrollbar-track {
+    box-shadow: inset 0px 0px 0px 2px #2d3139;
+}
+
+[data-theme="dark"] *::-webkit-scrollbar-thumb {
+    background-color: #1d2025;
+}
+
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+}
+
+.navbar-text {
+    color: #777;
+    line-height: 20px;
+    margin: 13px 0;
+    font: 18px 'Open Sans', sans-serif;
+}
+
+.navbar-default {
+    background: var(--gradient-primary);
+    background: -moz-linear-gradient(top, var(--gradient-primary) 0%, var(--gradient-secondary) 100%);
+    background: -webkit-linear-gradient(top, var(--gradient-primary) 0%,var(--gradient-secondary) 100%);
+    background: linear-gradient(to bottom, var(--gradient-primary) 0%,var(--gradient-secondary) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--gradient-primary)', endColorstr='var(--gradient-secondary)',GradientType=0 );
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    height: 50px;
+}
+
+.overlay {
+    z-index: 50;
+    height: calc(100vh - 138px);
+    width: 952px;
+    background: var(--overlay-primary);
+    background: -ms-radial-gradient(center, ellipse farthest-corner, var(--overlay-secondary) 0%, var(--overlay-primary) 100%);
+    background: -moz-radial-gradient(center, ellipse farthest-corner, var(--overlay-secondary) 0%, var(--overlay-primary) 100%);
+    background: -o-radial-gradient(center, ellipse farthest-corner, var(--overlay-secondary) 0%, var(--overlay-primary) 100%);
+    background: -webkit-gradient(radial, center center, 0, center center, 497, color-stop(0, var(--overlay-secondary)), color-stop(1, var(--overlay-primary)));
+    background: -webkit-radial-gradient(center, ellipse farthest-corner, var(--overlay-secondary) 0%, var(--overlay-primary) 100%);
+    background: radial-gradient(ellipse farthest-corner at center, var(--overlay-secondary) 0%, var(--overlay-primary) 100%);
+    position: fixed;
+    top: 64px;
+}
+
+#page-top-nav {display:none}
+#page-top-link {position:fixed;bottom:0}
+#page-top-link i {font-size:30px}
+
+.text-muted a {
+    color: #005E81;
+}
+
+.divider {padding: 0 5px 0 5px}
+
+/* ---------------------------------------------------------------------------------------------- */
+/* -----| DIRECTORY LISTER |--------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------- */
+
+#directory-list-header {
+    font-family: 'Cutive Mono', monospace, serif;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+#directory-listing {
+    font-family: 'Cutive Mono', monospace, serif;
+}
+
+#directory-listing li {
+    position: relative;
+    margin-right: 30px;
+}
+
+.file-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.file-name i {
+    color: #555;
+}
+
+.file-info-button,
+.web-link-button {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 100%;
+    padding: 6px 10px !important;
+    position: absolute !important;
+    top: 4px;
+}
+
+.web-link-button i,
+.file-info-button i {
+    color: #999;
+}
+
+
+/* ---------------------------------------------------------------------------------------------- */
+/* -----| FOOTER |------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------- */
+
+.footer {
+    margin: 20px;
+    text-align: center;
+}
+
+#footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    border-top: 1px solid var(--footer-border-color);
+    background: var(--gradient-secondary);
+    background: -moz-linear-gradient(top, var(--gradient-secondary) 0%, var(--gradient-primary) 100%);
+    background: -webkit-linear-gradient(top, var(--gradient-secondary) 0%,var(--gradient-primary) 100%);
+    background: linear-gradient(to bottom, var(--gradient-secondary) 0%,var(--gradient-primary) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--gradient-secondary)', endColorstr='var(--gradient-primary)',GradientType=0 );
+    z-index: 1001;
+}
+
+#footer .container .credit {
+    margin: 20px 10px;
+}
+
+/* ---------------------------------------------------------------------------------------------- */
+/* -----| CHECKSUM MODAL |----------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------- */
+
+#file-info {
+    margin: 0;
+}
+
+#file-info .table-title {
+    font-weight: bold;
+    text-align: right;
+    width: 70px;
+}
+
+#file-info .md5-hash,
+#file-info .sha1-hash,
+#file-info .sha256-hash {
+    font-family: 'Cutive Mono', monospace, serif;
+}
+
+/* -------------------------------------------------------------------------- */
+/* -----| RESPONSIVE |------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+@media (min-width:768px){
+    .modal-dialog{
+        width: 665px;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .navbar-nav {
+        float: left;
+        margin: 0;
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+
+    .navbar-nav > li {
+        float: left;
+    }
+
+    .navbar-nav > li > a {
+        padding-bottom: 15px;
+        padding-top: 15px;
+    }
+
+    .navbar-right {
+        float: right !important;
+    }
+
+    #page-navbar .navbar-text {
+        margin-left: 15px;
+        margin-right: 15px;
+        max-width: 75%;
+    }
+
+    .file-info-button {
+        display: none !important;
+    }
+
+}
+
+/* ========= Loading ========= */
+.lds-roller {
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    position: relative;
+    height: 80px;
+    width: 80px;
+    left: 50%;
+    top: 50%
+}
+.lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #0da3ea;
+    margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+}
+.lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+}
+.lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+}
+.lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+}
+.lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+}
+.lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+}
+.lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+}
+.lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+}
+@keyframes lds-roller {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

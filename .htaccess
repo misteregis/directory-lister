@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    RewriteCond %{REQUEST_FILENAME} /$
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME}/index\.html  !-f
+    RewriteCond %{REQUEST_FILENAME}/index\.xhtml !-f
+    RewriteCond %{REQUEST_FILENAME}/index\.php   !-f
+    RewriteRule ^(.*)$ browser.php?x=home/$1
+    RewriteRule ^browser$ browser.php [L]
+    
+    RewriteCond %{QUERY_STRING} dir=(.*)
+    RewriteRule ^browser.zip$ browser.php?zip=%1 [L]
+</IfModule>
